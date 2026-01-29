@@ -37,21 +37,21 @@ namespace libraryManagement
                     case "1":
                         tambahBuku();
                         break;
-                    case "2":
-                        ubahData();
-                        break;
-                    case "3":
-                        melihatAllBuku();
-                        break;
-                    case "4":
-                        pinjamBuku();
-                        break;
-                    case "5":
-                        kembalikanBuku();
-                        break;
-                    case "6":
-                        lihatBukudiPinjam();
-                        break;
+                    //case "2":
+                    //    ubahData();
+                    //    break;
+                    //case "3":
+                    //    melihatAllBuku();
+                    //    break;
+                    //case "4":
+                    //    pinjamBuku();
+                    //    break;
+                    //case "5":
+                    //    kembalikanBuku();
+                    //    break;
+                    //case "6":
+                    //    lihatBukudiPinjam();
+                    //    break;
                     case "7":
                         running = false;
                         Console.WriteLine("\nTerima Kasih");
@@ -63,6 +63,45 @@ namespace libraryManagement
                     Console.ReadLine();
                 }
             }
+        }
+
+        static void tambahBuku()
+        {
+            Console.Clear();
+            Console.WriteLine("\nTambah Buku");
+
+            Console.Write("Judul: ");
+            string judul = Console.ReadLine();
+
+            Console.Write("Penulis: ");
+            string penulis = Console.ReadLine();
+
+            Console.Write("Tahun terbit: ");
+            int tahun = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nJenis buku");
+            Console.WriteLine("1. Fiksi");
+            Console.WriteLine("2. Non-Fiksi");
+            Console.WriteLine("3. Majalah");
+            Console.Write("Masukan pilihan: ");
+            string jenisPilihan = Console.ReadLine();
+
+            string pilihan = "";
+            if (jenisPilihan == "1")
+                pilihan = "Fiksi";
+            else if (jenisPilihan == "2")
+                pilihan = "Non-Fiksi";
+            else if (jenisPilihan == "3")
+                pilihan = "Majalah";
+            else
+                pilihan = "Lain-lain";
+
+            judulBuku.Add(judul);
+            penulisBuku.Add(penulis);
+            tahunTerbit.Add(tahun);
+            jenisBuku.Add(pilihan);
+
+            Console.WriteLine("\nBuku berhasil ditambahkan!!");
         }
     }
 }
