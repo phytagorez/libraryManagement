@@ -37,21 +37,21 @@ namespace libraryManagement
                     case "1":
                         tambahBuku();
                         break;
-                    //case "2":
-                    //    ubahData();
-                    //    break;
-                    //case "3":
-                    //    melihatAllBuku();
-                    //    break;
-                    //case "4":
-                    //    pinjamBuku();
-                    //    break;
-                    //case "5":
-                    //    kembalikanBuku();
-                    //    break;
-                    //case "6":
-                    //    lihatBukudiPinjam();
-                    //    break;
+                    case "2":
+                        ubahData();
+                        break;
+                    case "3":
+                        melihatAllBuku();
+                        break;
+                    case "4":
+                        pinjamBuku();
+                        break;
+                    case "5":
+                        kembalikanBuku();
+                        break;
+                    case "6":
+                        lihatBukudiPinjam();
+                        break;
                     case "7":
                         running = false;
                         Console.WriteLine("\nTerima Kasih");
@@ -68,7 +68,7 @@ namespace libraryManagement
         static void tambahBuku()
         {
             Console.Clear();
-            Console.WriteLine("\nTambah Buku");
+            Console.WriteLine("=== Tambah Buku ===");
 
             Console.Write("Judul: ");
             string judul = Console.ReadLine();
@@ -102,6 +102,26 @@ namespace libraryManagement
             jenisBuku.Add(pilihan);
 
             Console.WriteLine("\nBuku berhasil ditambahkan!!");
+        }
+
+        static void ubahData()
+        {
+            Console.Clear();
+            Console.WriteLine("=== Ubah Data Buku ===");
+
+            if (judulBuku.Count == 0)
+            {
+                Console.WriteLine("Belum ada buku yang terdaftar!");
+                return;
+            }
+
+            for (int i = 0; i < judulBuku.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {judulBuku[i]}");
+            }
+
+            Console.Write("\nPilih Nomer");
+            int index = int.Parse(Console.ReadLine()) - 1;
         }
     }
 }
