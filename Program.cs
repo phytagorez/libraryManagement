@@ -120,8 +120,57 @@ namespace libraryManagement
                 Console.WriteLine($"{i + 1}. {judulBuku[i]}");
             }
 
-            Console.Write("\nPilih Nomer");
+            Console.Write("\nPilih Nomer: ");
             int index = int.Parse(Console.ReadLine()) - 1;
+
+            if (index < 0 || index >= judulBuku.Count)
+            {
+                Console.WriteLine("Nomor tidak valid");
+                return;
+            }
+
+            Console.WriteLine("\nEnter = Skip");
+
+            Console.Write("Judul baru: ");
+            string judulBaru = Console.ReadLine();
+            if (judulBaru != "")
+                judulBuku[index] = judulBaru;
+
+            Console.Write("Penulis baru: ");
+            string penulisBaru = Console.ReadLine();
+            if (penulisBaru != "")
+                penulisBuku[index] = judulBaru;
+
+            Console.Write("Tahun baru: ");
+            string tahunBaru = Console.ReadLine();
+            if (tahunBaru != "")
+                tahunTerbit[index] = int.Parse(tahunBaru);
+
+            Console.WriteLine("\nBuku berhasil diubah");
+        }
+
+        static void melihatAllBuku()
+        {
+            Console.Clear();
+            Console.WriteLine("=== Melihat Semua Daftar Buku ===");
+
+            if (judulBuku.Count == 0)
+            {
+                Console.WriteLine("Tidak ada buku yang terdaftar");
+            }
+
+            for (int i = 0; i < judulBuku.Count; i++)
+            {
+                string status = statusPinjam[i] ? "Dipinjam" : "Tersedia";
+
+                Console.WriteLine($"{i + 1}. {judulBuku[i]}");
+                Console.WriteLine($"\tPenulis: {penulisBuku[i]}");
+                Console.WriteLine($"\tTahun: {tahunTerbit[i]}");
+                Console.WriteLine($"\tJenis: {jenisBuku[i]}");
+                Console.WriteLine($"\tStatus: {status}\n");
+            }
+
+            Console.WriteLine($"Total: {judulBuku.Count}");
         }
     }
-}
+} 
